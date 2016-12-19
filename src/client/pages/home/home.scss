@@ -1,4 +1,6 @@
-$title-color: #d9534f;
+@import "../../components/bootstrap/variables";
+
+$title-color: $brand-success;
 
 .title {
     color: $title-color;

@@ -1,11 +1,17 @@
 'use strict';
 
-var isString = require('./tmp/b');
-var isUndefined = require('./tmp/a');
+var angular = require('angular');
 
-module.exports = function () {
-    var a;
-    var b = a;
-    console.log('a is undefined:' + isUndefined(a));
-    console.log('b is string:' + isString(b));
-};
+// pages
+var pagesModule = require('./pages');
+
+// app 入口
+var appComponent = require('./app.component');
+
+var appModule = angular.module('app', [
+    pagesModule
+])
+    .component('app', appComponent)
+    .name;
+
+module.exports = appModule;

@@ -1,22 +1,33 @@
-/**
- *  应用页面布局，为其他页面所共享
- */
-
 'use strict';
-
-// require('bootstrap.css');
 
 var angular = require('angular');
 var uiRouter = require('angular-ui-router');
 
-//引入组件
-var header = require('../components/header');
+// bootstrap
+require('bootstrap-sass/assets/stylesheets/_bootstrap.scss');
 
-// pages
-var home = require('./home');
-var news = require('./news');
+// all pages
+var homePage = require('./home');
+var newsPage = require('./news');
 
-angular.module('app', [uiRouter, header, home, news])
-    .config(require('./base/router'));
+var pagesModule = angular.module('app.pages', [
+    uiRouter,
+    homePage,
+    newsPage
+])
+    .config(function configRouter($urlRouterProvider) {
+        'ngInject';
 
-module.exports = 'app';
+        $urlRouterProvider.otherwise('/');
+    })
+    .name;
+
+module.exports = pagesModule;
+//
+// // 配置页面路由
+// /*@ngInject*/
+// function configRouter($urlRouterProvider) {
+//     "ngInject";
+//
+//     $urlRouterProvider.otherwise('/');
+// }
