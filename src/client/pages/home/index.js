@@ -6,7 +6,7 @@
 
 const PAGE_NAME = 'page.home';
 
-require('bootstrap.css');
+// require('bootstrap.css');
 require('./home.scss');
 
 var angular = require('angular');

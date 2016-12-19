@@ -5,7 +5,8 @@
 
 const COMPONENT_NAME = 'components.header';
 
-require('bootstrap.css');
+// require('bootstrap-loader');
+// require('bootstrap.css');
 require('./header.scss');
 
 var angular = require('angular');

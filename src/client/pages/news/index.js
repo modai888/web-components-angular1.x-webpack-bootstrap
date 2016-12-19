@@ -6,7 +6,8 @@
 
 const PAGE_NAME = 'page.news';
 
-require('bootstrap.css');
+
+// require('bootstrap.css');
 require('./page.scss');
 
 var angular = require('angular');

@@ -5,7 +5,7 @@
 
 const MODULE_NAME = 'components.sentiTrends';
 
-require('bootstrap.css');
+// require('bootstrap.css');
 require('./style.scss');
 
 var angular = require('angular');

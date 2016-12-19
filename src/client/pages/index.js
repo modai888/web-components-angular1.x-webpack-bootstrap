@@ -4,7 +4,7 @@
 
 'use strict';
 
-require('bootstrap.css');
+// require('bootstrap.css');
 
 var angular = require('angular');
 var uiRouter = require('angular-ui-router');

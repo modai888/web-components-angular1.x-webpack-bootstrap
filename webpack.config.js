@@ -3,6 +3,8 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var autoprefixer = require('autoprefixer');
+var precss = require('precss');
 
 /**
  *  识别构建环境
@@ -36,7 +38,7 @@ var config = {
 config.entry = isTest ? {} : {
     app: './src/client/pages/index.js',
     vendor: ['angular', 'angular-ui-router',],
-    vendorCss: ['bootstrap.css'],
+    // vendorCss: ['bootstrap-loader'],
     // 测试多入口添加
     tmp: ['./src/client/tmp/a.js', './src/client/tmp/b.js']
 };
@@ -74,8 +76,12 @@ config.module = {
             }
         },
         {
+            test: /\.css$/,
+            loader: ExtractTextPlugin.extract('style', 'css-loader!postcss-loader')
+        },
+        {
             test: /\.scss$/,
-            loader: ExtractTextPlugin.extract('style', 'css!sass')
+            loader: ExtractTextPlugin.extract('style', 'css-loader!sass-loader')
         },
         {
             test: /\.html$/,
@@ -84,16 +90,24 @@ config.module = {
     ]
 };
 
+// 配置postcss
+config.postcss = [
+    autoprefixer({
+        browsers: ["Android 2.3", "Android >= 4", "Chrome >= 20", "Firefox >= 24", "Explorer >= 8", "iOS >= 6", "Opera >= 12", "Safari >= 6"]
+    }),
+    precss()
+];
+
 /**
  *  插件
  *  参考：
  * */
 config.plugins = [
     new webpack.optimize.CommonsChunkPlugin({
-        name: ['vendor', 'vendorCss', 'load'], minChunks: Infinity
+        name: ['vendor', 'load'], minChunks: Infinity
     }),
     new HtmlWebpackPlugin({
-        title:'Web组件化开发',
+        title: 'Web组件化开发',
         template: './src/client/pages/base/index.html',
         inject: 'body'
     }),
@@ -105,7 +119,7 @@ config.plugins = [
  * */
 config.resolve = {};
 config.resolve.alias = {
-    'bootstrap.css': 'bootstrap/dist/css/bootstrap.css'
+    // 'bootstrap.css': 'bootstrap/dist/css/bootstrap.css'
 };
 
 
