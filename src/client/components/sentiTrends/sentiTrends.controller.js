@@ -14,6 +14,8 @@ require('echarts/lib/component/title');
 SentiTrendsController.$inject = ['$scope', '$element'];
 function SentiTrendsController($scope, $element) {
     var self = this;
+    
+    self.title = 'senti-trends';
 
     $scope.$$postDigest(function () {
         initChart();
