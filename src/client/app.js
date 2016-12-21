@@ -14,4 +14,5 @@ var appModule = angular.module('app', [
     .component('app', appComponent)
     .name;
 
+
 module.exports = appModule;
