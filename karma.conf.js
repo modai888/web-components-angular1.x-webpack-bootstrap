@@ -29,8 +29,17 @@ module.exports = function (config) {
             devtool: 'source-map',
             entry: {},
             module: {
+                preLoaders: [{
+                    // 用于统计测试文件数量，为后续计算覆盖率提供数据
+                    test: /\.js$/,
+                    exclude: [/node_modules/, /\.spec\.js$/],
+                    loader: 'istanbul-instrumenter',
+                    query: {
+                        esModules: true
+                    }
+                }],
                 loaders: [
-                    {test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: 'ng-annotate'},
+                    {test: /\.js$/, exclude: [/node_modules/], loader: 'ng-annotate'},
                     {test: /\.html$/, loader: 'raw'},
                     {test: /\.(scss|sass)$/, loader: 'style!css!sass'},
                     {test: /\.css$/, loader: 'style!css'},

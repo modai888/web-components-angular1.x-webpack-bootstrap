@@ -147,6 +147,28 @@ npm run --save-dev webpack-dev-server
 client参考组件化分治思想进行划分，具体[参考](https://github.com/fouber/blog/issues/10) 
 
 
+## 单元测试 
+
+#### 搭建单元测试环境
+
+1. 安装依赖、包括 karma、jasmine、karam-jasmine、karam-webpack、karma-coverage  
+2. 初始化karma配置文件
+3. 在karma配置文件中添加webpack配置项，配置项内容可单独写或通过require引入外部配置文件
+4. 在karam webpack配置中新增preLoader：istanbul-instrumenter-loader,这个loader的主要用途就是统计测试代码基数，方便进行覆盖率计算  
+    karma-coverage需配合istanbul-instrumenter-loader使用，否则无法正确显示测试覆盖率信息。
+5. 添加npm脚本
+
+```
+        "test": "karma start",
+        "test-watch": "karma start --auto-watch --no-single-run",
+```
+
+
+#### E2E测试
+
+1. 添加protractor依赖
+2. 添加npm脚本，用户更新webdriver-manager
+
 
 ## webpack 学习资源
 
