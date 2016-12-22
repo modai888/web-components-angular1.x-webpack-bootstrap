@@ -15,9 +15,11 @@ var pagesModule = angular.module('app.pages', [
     homePage,
     newsPage
 ])
-    .config(function configRouter($urlRouterProvider) {
+    .config(function configRouter($urlRouterProvider, $locationProvider) {
         'ngInject';
 
+        $locationProvider.html5Mode(true);
+        $locationProvider.hashPrefix('!');
         $urlRouterProvider.otherwise('/');
     })
     .name;

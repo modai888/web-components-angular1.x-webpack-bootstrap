@@ -7,7 +7,6 @@ app.use(function *() {
 });
 
 
-
 // 启动app
 app.listen(3000, function () {
     console.log('lifted!')
