@@ -1,7 +1,101 @@
-<header class="navbar navbar-static-top navbar-default gs-header-cls">
-    <div class="navbar-brand">组件化web开发</div>
-    <nav class="nav nav-pills navbar-link navbar-left">
-        <li><a ui-sref="home">首页</a></li>
-        <li><a ui-sref="news">新闻</a></li>
-    </nav>
+<header class="app-header navbar">
+    <div class="navbar-header" ng-class="skinHeading">
+        <button class="pull-right visible-xs dk">
+            <i class="fa fa-gear"></i>
+        </button>
+        <button class="pull-right visible-xs">
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <a href="" class="navbar-brand text-lt">
+            <i class="fa fa-btc"></i>
+            <span class="hidden-folded m-l-xs">组件化开发</span>
+        </a>
+    </div>
+
+    <div class="navbar-collapse collapse pos-rlt box-shadow" ng-class="skinCollapse">
+        <div class="nav navbar-nav hidden-xs">
+            <a class="btn navbar-btn no-shadow">
+                <i class="fa fa-fw fa-dedent"></i>
+            </a>
+            <a class="btn navbar-btn no-shadow">
+                <i class="fa fa-fw fa-user-o"></i>
+            </a>
+        </div>
+
+        <!-- 链接和下拉菜单 -->
+        <ul class="nav navbar-nav">
+            <li class="dropdown pos-stc" uib-dropdown>
+                <a class="dropdown-toggle" uib-dropdown-toggle>
+                    <span>menu</span><span class="caret"></span>
+                </a>
+                <div class="dropdown-menu wrapper w-full th-white" uib-dropdown-menu>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="m-l-xs m-t-xs m-b-xs font-bold">Pages <span
+                                    class="badge badge-sm badge-success">6</span></div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled l-h-2px">
+                                        <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Profile</a>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled l-h-2px">
+                                        <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Profile</a>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="m-l-xs m-t-xs m-b-xs font-bold">Pages <span
+                                    class="badge badge-sm badge-success">6</span></div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled l-h-2px">
+                                        <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Profile</a>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled l-h-2px">
+                                        <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Profile</a>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="m-l-xs m-t-xs m-b-xs font-bold">Pages <span
+                                    class="badge badge-sm badge-success">6</span></div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled l-h-2px">
+                                        <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Profile</a>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled l-h-2px">
+                                        <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Profile</a>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown" uib-dropdown>
+                <a class="dropdown-toggle" uib-dropdown-toggle>
+                    <i class="fa fa-fw fa-plus visible-xs-inline-block"></i>
+                    <span>news</span><span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" uib-dropdown-menu>
+                    <li><a href="#"><i class="fa fa-fw fa-car m-r-xs"></i>汽车新闻</a></li>
+                    <li><a href="#"><i class="fa fa-fw fa-car m-r-xs"></i>汽车新闻</a></li>
+                    <li><a href="#"><i class="fa fa-fw fa-car m-r-xs"></i>汽车新闻</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="fa fa-fw fa-car m-r-xs"></i>汽车新闻</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
 </header>

@@ -9,11 +9,15 @@ require('bootstrap-sass/assets/stylesheets/_bootstrap.scss');
 // all pages
 var homePage = require('./home');
 var newsPage = require('./news');
+var adminPage = require('./admin');
+var reduxPage = require('./redux');
 
 var pagesModule = angular.module('app.pages', [
     uiRouter,
     homePage,
-    newsPage
+    newsPage,
+    adminPage,
+    reduxPage
 ])
     .config(function configRouter($urlRouterProvider, $locationProvider) {
         'ngInject';

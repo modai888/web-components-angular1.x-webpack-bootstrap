@@ -1,0 +1,44 @@
+@import "../theme/app.variables";
+@import "../theme/app.utilities";
+@import "../theme/app.themes";
+
+$black: #444;
+
+.app-header {
+    font-family: $font-family-base;
+}
+
+.app-header {
+    &.navbar {
+        border: 0;
+    }
+
+    .pos-rlt {
+        position: relative;
+    }
+
+    .pos-stc {
+        position: static;
+    }
+
+    .wrapper {
+        padding: 15px;
+    }
+
+    .w-full {
+        width: 100%;
+    }
+}
+
+// 媒体查询
+.app-header {
+    @media (min-width: 768px) {
+        .navbar-header {
+            width: 200px;
+        }
+
+        .navbar-collapse {
+            margin-left: 200px;
+        }
+    }
+}

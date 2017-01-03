@@ -7,14 +7,13 @@ function headerDirective() {
     return {
         restrict: 'EA',
         scope: {
-            skinHeading: '=?',
-            skinCollapse: '=?'
+            skin: '=?',
+            cls: '@'
         },
         replace: true,
-        template: require('./header.html'),
+        template: require('./aside.html'),
         link: function ($scope) {
-            $scope.skinHeading = $scope.skinHeading || 'th-primary';
-            $scope.skinCollapse = $scope.skinCollapse || 'th-dark'
+            $scope.skin = $scope.skinHeading || 'th-black';
         }
     }
 }

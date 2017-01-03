@@ -1,0 +1,24 @@
+// 重置第三方css框架（如，bootstrap）的某些样式，属于系统级别的行为。
+// 为了满足系统个性和产品化的要求，第三方css框架的某些
+html {
+    background-color: $body-bg;
+}
+
+body {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    color: $text-color;
+    background-color: transparent;
+    // css3 字体抗锯齿，none | subpixel-antialiased | antialiased
+    -webkit-font-smoothing: antialiased;
+    line-height: $line-height-base;
+}
+
+// 消除outline边框
+*:focus {
+    outline: 0 !important;
+}
+
+a{
+    cursor: pointer;
+}

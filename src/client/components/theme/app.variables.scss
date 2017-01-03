@@ -1,0 +1,48 @@
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/_variables";
+
+/** 系统调色板 **/
+$brand-primary: #7266ba;
+$brand-info: #23b7e5;
+$brand-success: #27c24c;
+$brand-warning: #fad733;
+$brand-danger: #f05050;
+$brand-black: #1c2b36;
+$brand-dark: #3a3f51;
+$brand-light: #edf1f2;
+$brand-white: #fff;
+
+// 全局背景色
+$body-bg: lighten($brand-light, 1%);
+// 正文文本颜色
+$text-color: #58666e;
+// 副文本（次要的或说明性的）文本颜色
+$text-muted: lighten($text-color, 25%);
+
+// 全局字体
+$font-family-sans-serif: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, '微软雅黑', sans-serif;
+$font-family-serif: Georgia, "Times New Roman", Times, serif;
+$font-family-base: $font-family-sans-serif;
+
+// 定义基准字体大小，即可用字体大小
+$font-size-base: 14px;
+$font-size-lg: ceil($font-size-base*1.23); // 18px
+$font-size-md: ceil($font-size-base*1.14); // 16px
+$font-size-sm: ceil($font-size-base*0.92); // 13px
+$font-size-xs: ceil($font-size-base*0.85); // 12px
+
+// 定义行高基准
+$line-height-base: 1.428571429; // 20px/14px
+// 行高计算公式，注意为floor,向下取整
+$line-height-computed: floor($line-height-base*$font-size-base); // 20px
+
+// 链接文本颜色
+$link-color: darken($text-color, 15%);
+$link-hover-color: darken($text-color, 30%);
+$link-hover-decoration: underline !default;
+
+//#== Layout 相关
+$app-header-height: $navbar-height;
+$app-aside-width: 200px;
+$app-aside-folded-width: 60px;
+$app-aside-nav-height: 40px;
+

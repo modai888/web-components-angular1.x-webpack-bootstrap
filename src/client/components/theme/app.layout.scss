@@ -1,0 +1,114 @@
+// 定义、描述 应用程序结构
+
+// 设置视觉区域大小为填充整个浏览器视图窗口
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+// 表示整个应用结构中的根节点
+// 设置当前应用的显示高度应不小于浏览器视图窗口高度
+// 设置定位模式为相对定位，以限定应用内所有dom元素的显示区域不超出此根节点的显示区域
+.app {
+    height: auto;
+    min-height: 100%;
+    width: 100%;
+    position: relative;
+
+    // 暂时不清楚设置:before伪元素的用意。
+    // 该伪元素表达的意思为：用于遮挡或隐藏层叠顺序小于-1的所有元素
+    //&:before {
+    //    content: "";
+    //    position: absolute;
+    //    width: inherit;
+    //    top: 0;
+    //    bottom: 0;
+    //    z-index: -1;
+    //    background-color: $body-bg;
+    //    border: inherit;
+    //    display: block;
+    //}
+}
+
+// 表示应用结构中的头部导航条，基于bootstrap navbar构建，所以需配合.navbar使用
+// .app -> .app-header
+// .navbar在非移动设备上添加了一个border-radius，在这里我们不需要
+.app-header {
+    // 导航条需要层叠上页面最顶部，防止其他区域遮盖导航条
+    z-index: 1025;
+    border-radius: 0;
+}
+
+// 表示应用结构中的主体内容，
+.app-content {
+
+}
+
+// 表示应用结构中的左侧边栏部分
+.app-aside {
+    float: left;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: inherit;
+        background-color: inherit;
+        border: inherit;
+        z-index: -1;
+    }
+}
+
+// 定制部分bootstrap样式
+.navbar-brand {
+    display: inline-block;
+    float: none;
+    line-height: $navbar-height;
+    font-weight: 700;
+    text-align: center;
+    padding: 0 20px;
+}
+
+// 针对>768px的设备进行设置
+@media (min-width: $grid-float-breakpoint) {
+    .navbar-header,
+    .app-aside {
+        width: $app-aside-width;
+    }
+
+    .navbar-collapse,
+    .app-content,
+    .app-footer {
+        margin-left: $app-aside-width;
+    }
+
+    // 设定需要在侧边栏折叠时行为
+    .app-aside-folded {
+        .hidden-folded {
+            display: none !important;
+        }
+
+        .navbar-header,
+        .app-aside {
+            width: $app-aside-folded-width;
+        }
+
+        .navbar-collapse,
+        .app-content,
+        .app-footer {
+            margin-left: $app-aside-folded-width;
+        }
+
+        //app-header
+        .app-header {
+            .navbar-brand {
+                display: block;
+            }
+        }
+    }
+
+}

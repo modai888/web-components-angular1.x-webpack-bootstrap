@@ -1,0 +1,23 @@
+@import "../theme/app.variables";
+@import "../theme/app.utilities";
+@import "../theme/app.themes";
+
+.app-aside {
+    float: left;
+    width: 200px;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: inherit;
+        background-color: inherit;
+        border: inherit;
+        z-index: -1;
+    }
+}
+
+.admin-content {
+    margin-left: 200px;
+}

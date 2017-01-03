@@ -1,0 +1,62 @@
+.nav-sub {
+    // 子导航菜单，默认不可见
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-left: -20px; // 触发由左边飘入的动画
+    @include transition(all .2s ease-in-out 0s);
+
+    .active &,
+    .app-aside-folded li:hover &,
+    .app-aside-folded li:focus &,
+    .app-aside-folded li:active & {
+        opacity: 1;
+        margin-left: 0;
+        height: auto !important;
+        overflow: auto;
+    }
+}
+
+.navi {
+    ul.nav {
+        li {
+            display: block;
+            position: relative;
+            li {
+                a {
+                    padding-left: $app-aside-nav-height + 15px;
+                }
+            }
+            a {
+                font-weight: normal;
+                text-transform: none;
+                display: block;
+                padding: floor(($app-aside-nav-height - $line-height-computed)/2) 20px;
+                line-height: $line-height-computed;
+                position: relative;
+                @include transition(background-color .2s ease-in-out 0s);
+
+                .badge,
+                .label {
+                    font-size: 11px;
+                    padding: 2px 5px;
+                    margin-top: 2px;
+                }
+                > i {
+                    margin: floor(-($app-aside-nav-height - $line-height-computed)/2) -10px;
+                    line-height: $app-aside-nav-height;
+                    width: $app-aside-nav-height;
+                    float: left;
+                    margin-right: 5px;
+                    text-align: center;
+                    position: relative;
+                    overflow: hidden;
+                    &:before {
+                        position: relative;
+                        z-index: 2;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -3,16 +3,16 @@
  */
 'use strict';
 
-const COMPONENT_NAME = 'components.header';
+const COMPONENT_NAME = 'gs.components.aside';
 
 require('font-awesome-loader');
-require('./header.scss');
+require('./aside.scss');
 
 var angular = require('angular');
 var angularUI = require('angular-ui-bootstrap');
 
 
 angular.module(COMPONENT_NAME, [angularUI])
-    .directive('appHeader', require('./header.directive'));
+    .directive('appAside', require('./aside.directive'));
 
 module.exports = COMPONENT_NAME;

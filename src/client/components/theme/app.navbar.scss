@@ -1,0 +1,29 @@
+.navbar {
+    margin: 0;
+    // 清楚边框
+    border-width: 0;
+    // 清楚圆角
+    border-radius: 0;
+}
+
+// 自定义navbar-header中.navbar-toggle按钮，替换.navbar-toggle按钮
+// 因为.navbar-toggle本身定义的属性比较多，为了个性化可能会重写很多属性，还不如完全写一个新的。
+.navbar-header {
+    > button {
+        //字体图标变大
+        font-size: 18px;
+        // 重置行高
+        line-height: 30px;
+        // 取消边框
+        border: none;
+        // 设置内边距进行垂直居中
+        text-decoration: none;
+        padding: 10px 17px;
+        background-color: transparent;
+    }
+}
+
+// 这里设置
+.navbar-btn {
+    line-height: $line-height-computed;
+}

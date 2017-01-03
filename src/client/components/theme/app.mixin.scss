@@ -1,0 +1,75 @@
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/_mixins";
+
+// 计算颜色值，当颜色变浅时，降低其饱和度，使其变暗淡
+// 当颜色变深时，增加其饱和度，使其更鲜艳
+@mixin color-schema($bg-color, $percent, $sat-percent) {
+    @if $percent < 0 {
+        background-color: desaturate(lighten($bg-color, -$percent), -$sat-percent);
+    } @else {
+        background-color: saturate(darken($bg-color, $percent), $sat-percent);
+    }
+}
+
+// 定义主题背景
+@mixin bg-variant($bg-color:#555, $lt-percent:10%, $lter-percent:15%, $dk-percent:10%, $dker-percent:15%) {
+    background-color: $bg-color;
+
+    .bg, &.bg {
+        background-color: $bg-color;
+    }
+    .lter, &.lter {
+        @include color-schema($bg-color, -$lter-percent, -5%);
+    }
+    .lt, &.lt {
+        @include color-schema($bg-color, -$lt-percent, -2.5%);
+    }
+    .dk, &.dk {
+        @include color-schema($bg-color, $dk-percent, 2.5%);
+    }
+    .dker, &.dker {
+        @include color-schema($bg-color, $dker-percent, 5%);
+    }
+}
+
+@mixin font-variant($bg-color) {
+    $font-color: desaturate(lighten($bg-color, 40%), 10%);
+    $link-color: desaturate(lighten($bg-color, 50%), 10%);
+    $hover-color: #fff;
+
+    color: $font-color;
+    a {
+        color: $link-color;
+
+        &:hover,
+        &:focus {
+            color: $hover-color;
+        }
+    }
+    .nav {
+        > li {
+            &:hover,
+            &:focus,
+            &.active {
+                > a {
+                    color: $link-color;
+                    @include color-schema($bg-color, 5%, 2.5%);
+                }
+            }
+
+            > a {
+                color: darken($link-color, 5%);
+                &:hover,
+                &:focus {
+                    @include color-schema($bg-color, 3%, 2.5%)
+                }
+            }
+        }
+
+        // 下拉菜单
+        .open {
+            > a {
+                @include color-schema($bg-color, 5%, 2.5%);
+            }
+        }
+    }
+}

@@ -1,0 +1,37 @@
+
+.th-light {
+    @include bg-variant($brand-light, 2%, 3%, 3%, 5%);
+    color: $text-color;
+}
+
+// 为每一种调色板颜色定义5中明暗梯度
+@each $theme in primary, info, success, warning, danger, black, dark, {
+    //.th-#{$theme} {
+    //    @include bg-variant($brand-#{$theme}, 5%, 10%, 5%, 10%);
+    //    @include font-variant($brand-#{$theme});
+    //}
+    .th-#{$theme} {
+        @if $theme == primary {
+            @include bg-variant($brand-primary, 5%, 10%, 5%, 10%);
+            @include font-variant($brand-primary);
+        } @else if $theme == info {
+            @include bg-variant($brand-info, 5%, 10%, 5%, 10%);
+            @include font-variant($brand-info);
+        } @else if $theme == success {
+            @include bg-variant($brand-success, 5%, 10%, 5%, 10%);
+            @include font-variant($brand-success);
+        } @else if $theme == warning {
+            @include bg-variant($brand-warning, 5%, 10%, 5%, 10%);
+            @include font-variant($brand-warning);
+        } @else if $theme == danger {
+            @include bg-variant($brand-danger, 5%, 10%, 5%, 10%);
+            @include font-variant($brand-danger);
+        } @else if $theme == black {
+            @include bg-variant($brand-black, 5%, 10%, 5%, 10%);
+            @include font-variant($brand-black);
+        } @else if $theme == dark {
+            @include bg-variant($brand-dark, 5%, 10%, 5%, 10%);
+            @include font-variant($brand-dark);
+        }
+    }
+}

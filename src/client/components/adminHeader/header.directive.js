@@ -3,19 +3,16 @@
  */
 'use strict';
 
+var controller = require('./header.controller');
+
 function headerDirective() {
     return {
         restrict: 'EA',
         scope: {
-            skinHeading: '=?',
-            skinCollapse: '=?'
         },
         replace: true,
         template: require('./header.html'),
-        link: function ($scope) {
-            $scope.skinHeading = $scope.skinHeading || 'th-primary';
-            $scope.skinCollapse = $scope.skinCollapse || 'th-dark'
-        }
+        controller: controller
     }
 }
 

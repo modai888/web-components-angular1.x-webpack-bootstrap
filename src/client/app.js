@@ -2,6 +2,7 @@
 
 var angular = require('angular');
 
+
 // pages
 var pagesModule = require('./pages');
 
@@ -12,6 +13,13 @@ var appModule = angular.module('app', [
     pagesModule
 ])
     .component('app', appComponent)
+    .run(function initApp($http) {
+        'ngInject';
+        // 获取当前用户自定义主题
+        $http.get('/api/theme').then(function (res) {
+            $rootScope.theme = res.data;
+        });
+    })
     .name;
 
 
