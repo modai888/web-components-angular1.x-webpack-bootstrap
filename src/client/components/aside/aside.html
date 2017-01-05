@@ -2,23 +2,36 @@
     <div class="aside-wrap">
         <div class="navi-wrap">
             <nav class="navi">
-                <ul class="nav">
-                    <li class="hidden-folded padder m-t m-b-sm text-muted text-sm">
-                        <span>Navigation</span>
-                    </li>
-                    <li class="active">
-                        <a class="auto">
-                            <span class="pull-right text-muted"></span>
-                            <i class="fa fa-fw fa-dashboard"></i>
-                            <span>Dashboard</span>
+                <ul class="nav" ui-menu="menus">
+                    <li ui-menu-item="item"
+                        ng-class="[{'active':!item.$hasChildren() &&item.$isFolded(), 'open':item.$hasChildren() && item.$isFolded() },item.cls]">
+                        <a class="auto" ng-if="item.$hasChildren()" ng-click="item.$toggleFolded()">
+                            <span class="pull-right text-muted" ng-if="item.$hasChildren()">
+                                <i class="fa fa-fw"
+                                   ng-class="{'fa-angle-down':item.$isFolded(),'fa-angle-left':!item.$isFolded()}"></i>
+                            </span>
+                            <i ng-if="item.icon" ng-class="item.icon"></i>
+                            <span ng-bind="item.label"></span>
                         </a>
-                        <ul class="nav nav-sub dk">
-                            <li>
-                                <a href>数据概览</a>
-                            </li>
-                            <li>
-                                <a href>新闻纵览</a>
-                            </li>
+                        <a class="auto" ng-if="!item.$hasChildren() && item.uiSref" ui-sref="{{item.uiSref}}">
+                            <span class="pull-right text-muted" ng-if="item.$hasChildren()">
+                                <i class="fa fa-fw"
+                                   ng-class="{'fa-angle-down':item.$isFolded(),'fa-angle-left':!item.$isFolded()}"></i>
+                            </span>
+                            <i ng-if="item.icon" ng-class="item.icon"></i>
+                            <span ng-bind="item.label"></span>
+                        </a>
+                        <a class="auto" ng-if="!item.$hasChildren() && !item.uiSref" ng-click="item.$toggleFolded()">
+                            <span class="pull-right text-muted" ng-if="item.$hasChildren()">
+                                <i class="fa fa-fw"
+                                   ng-class="{'fa-angle-down':item.$isFolded(),'fa-angle-left':!item.$isFolded()}"></i>
+                            </span>
+                            <i ng-if="item.icon" ng-class="item.icon"></i>
+                            <span ng-bind="item.label"></span>
+                        </a>
+
+                        <ul class="nav nav-sub dk" ng-if="item.$hasChildren()"
+                            ui-submenu="item.children">
                         </ul>
                     </li>
                 </ul>

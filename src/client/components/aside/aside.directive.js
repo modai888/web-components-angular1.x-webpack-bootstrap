@@ -14,6 +14,59 @@ function headerDirective() {
         template: require('./aside.html'),
         link: function ($scope) {
             $scope.skin = $scope.skinHeading || 'th-black';
+            $scope.menus = [
+                {
+                    label: 'Dashboard',
+                    icon: 'fa fa-fw fa-dashboard',
+                    children: [
+                        {
+                            label: 'Dashboard',
+                            cls: 'nav-sub-header'
+                        }, {
+                            label: '金融行业',
+                            href: 'admin2'
+                        }, {
+                            label: '汽车行业',
+                            children: [
+                                {
+                                    label: '新闻统计',
+                                    uiSref: 'admin22'
+                                }, {
+                                    label: '论坛统计',
+                                    uiSref: 'admin33'
+                                }
+                            ]
+                        }
+                    ]
+                }, {
+                    label: '租户管理',
+                    icon: 'fa fa-fw fa-user-o',
+                    children: [
+                        {
+                            label: '租户管理',
+                            cls: 'nav-sub-header'
+                        },
+                        {
+                            label: '租户信息',
+                            uiSref: 'admin333'
+                        }, {
+                            label: '租户权限',
+                            children: [
+                                {
+                                    label: '租户A',
+                                    uiSref: 'admin333'
+                                }, {
+                                    label: '租户B',
+                                    uiSref: 'admin'
+                                }
+                            ]
+                        }
+                    ]
+                }, {
+                    label: '权限管理',
+                    icon: 'fa fa-fw fa-list'
+                }
+            ];
         }
     }
 }

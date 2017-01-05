@@ -8,7 +8,8 @@ function headerDirective() {
         restrict: 'EA',
         scope: {
             skinHeading: '=?',
-            skinCollapse: '=?'
+            skinCollapse: '=?',
+            toggleHeading: '&'
         },
         replace: true,
         template: require('./header.html'),

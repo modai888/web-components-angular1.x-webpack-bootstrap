@@ -33,7 +33,7 @@
 
 @mixin font-variant($bg-color) {
     $font-color: desaturate(lighten($bg-color, 40%), 10%);
-    $link-color: desaturate(lighten($bg-color, 50%), 10%);
+    $link-color: desaturate(lighten($bg-color, 50%), 20%);
     $hover-color: #fff;
 
     color: $font-color;
@@ -57,11 +57,11 @@
             }
 
             > a {
-                color: darken($link-color, 5%);
-                &:hover,
-                &:focus {
-                    @include color-schema($bg-color, 3%, 2.5%)
-                }
+                color: darken($link-color, 15%);
+                //&:hover,
+                //&:focus {
+                //    @include color-schema($bg-color, 5%, 2.5%)
+                //}
             }
         }
 
@@ -71,5 +71,8 @@
                 @include color-schema($bg-color, 5%, 2.5%);
             }
         }
+    }
+    .text-muted {
+        color: darken($font-color, 10%);
     }
 }

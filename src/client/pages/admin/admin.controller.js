@@ -12,4 +12,8 @@ module.exports = function AdminController() {
         headerColor: ''
     };
 
+    vm.toggleHeading = function () {
+        vm.asideFolded = !vm.asideFolded;
+    }
+
 };

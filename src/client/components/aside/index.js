@@ -10,9 +10,10 @@ require('./aside.scss');
 
 var angular = require('angular');
 var angularUI = require('angular-ui-bootstrap');
+var uiTree = require('../../widgets/ui-tree');
 
 
-angular.module(COMPONENT_NAME, [angularUI])
+angular.module(COMPONENT_NAME, [angularUI, uiTree])
     .directive('appAside', require('./aside.directive'));
 
 module.exports = COMPONENT_NAME;

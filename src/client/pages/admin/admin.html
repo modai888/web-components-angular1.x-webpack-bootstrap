@@ -1,6 +1,6 @@
-<div class="admin">
+<div class="admin" ng-class="{'app-aside-folded':admin.asideFolded}">
     <!-- navbar -->
-    <app-header></app-header>
+    <app-header toggle-heading="admin.toggleHeading()"></app-header>
     <!-- / navbar -->
 
 
@@ -11,6 +11,7 @@
 
     <div class="app-content">
         this is content body
+        <div ui-test></div>
     </div>
 
 </div>
