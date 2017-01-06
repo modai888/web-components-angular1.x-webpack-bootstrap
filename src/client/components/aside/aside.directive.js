@@ -13,7 +13,7 @@ function headerDirective() {
         replace: true,
         template: require('./aside.html'),
         link: function ($scope) {
-            $scope.skin = $scope.skinHeading || 'th-black';
+            $scope.skin = $scope.skin || 'th-black';
             $scope.menus = [
                 {
                     label: 'Dashboard',
@@ -64,6 +64,10 @@ function headerDirective() {
                     ]
                 }, {
                     label: '权限管理',
+                    icon: 'fa fa-fw fa-list'
+                }, {
+                    label: '布局管理',
+                    uiSref: 'admin.layout',
                     icon: 'fa fa-fw fa-list'
                 }
             ];

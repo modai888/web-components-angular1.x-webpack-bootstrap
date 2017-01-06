@@ -10,8 +10,7 @@ module.exports = function (app) {
 
     router
         .get('/', controller.index)
-        .get('/news', controller.index)
-        .get('/admin', controller.index)
+        .get('/layout', controller.index)
         .get('/redux', controller.index);
 
 

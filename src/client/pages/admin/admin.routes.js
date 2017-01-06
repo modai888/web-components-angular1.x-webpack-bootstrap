@@ -9,5 +9,10 @@ module.exports = function ($stateProvider) {
         template: require('./admin.html'),
         controller: 'AdminController',
         controllerAs: 'admin'
-    });
+    }).state('admin.layout', {
+        url: '/layout',
+        template: require('./layout/layout.html'),
+        controller: require('./layout/layout.controller'),
+        controllerAs: 'vm'
+    })
 };

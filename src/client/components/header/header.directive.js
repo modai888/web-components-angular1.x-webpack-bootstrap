@@ -14,8 +14,11 @@ function headerDirective() {
         replace: true,
         template: require('./header.html'),
         link: function ($scope) {
-            $scope.skinHeading = $scope.skinHeading || 'th-primary';
-            $scope.skinCollapse = $scope.skinCollapse || 'th-dark'
+
+            console.log('component:header postLink');
+
+            // $scope.skinHeading = $scope.skinHeading || 'th-primary';
+            // $scope.skinCollapse = $scope.skinCollapse || 'th-dark';
         }
     }
 }

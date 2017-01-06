@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="container"></div>
+<div>
+    时间：<input type="date">
+</div>
+<div>
+    颜色：<input type="color">
+</div>
+
+<gs-header data-theme="dark" data-user="user" toggle-heading="vm.toggleHeading()"></gs-header>
+
+<gs-chart type="echarts-line" x-axis="data" y-axis="data" title="xxx" height="" width=""></gs-chart>
+
+<finance-sentiment-trend></finance-sentiment-trend>
+
+
+<script>
+    var c = document.getElementById('container');
+
+    c.innerHTML = '<input type="date">';
+    c.innerHTML = '<ion-slides><ion-slide-page>幻灯片内容</ion-slide-page></ion-slides>';
+
+    c.innerHTML = '<my-component></my-component>';
+
+    $compile(c.children)(scope);
+</script>
+</body>
+</html>

@@ -19,6 +19,7 @@ var appAside = require('../../components/aside');
 var adminRoutes = require('./admin.routes');
 var adminConfig = require('./admin.config');
 var AdminController = require('./admin.controller');
+var adminRun = require('./admin.run');
 
 angular.module(PAGE_NAME,
     [
@@ -27,6 +28,7 @@ angular.module(PAGE_NAME,
     ])
     .controller('AdminController', AdminController)
     .config(adminRoutes)
-    .config(adminConfig);
+    .config(adminConfig)
+    .run(adminRun);
 
 module.exports = PAGE_NAME;

@@ -1,17 +1,18 @@
 <div class="admin" ng-class="{'app-aside-folded':admin.asideFolded}">
     <!-- navbar -->
-    <app-header toggle-heading="admin.toggleHeading()"></app-header>
+    <app-header toggle-heading="admin.toggleAside()" skin-heading="admin.headingTheme"
+                skin-collapse="admin.navbarTheme"></app-header>
     <!-- / navbar -->
 
 
     <!-- left aside -->
-    <app-aside data-cls="hidden-xs"></app-aside>
+    <app-aside data-cls="hidden-xs" skin="admin.asideTheme"></app-aside>
     <!-- / left aside -->
 
 
     <div class="app-content">
-        this is content body
-        <div ui-test></div>
+
+        <div class="app-content-body" ui-view></div>
     </div>
 
 </div>

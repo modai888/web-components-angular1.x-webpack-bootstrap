@@ -1,0 +1,66 @@
+<section class="container-fluid">
+    <h2>布局设置</h2>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>导航栏</h4>
+
+        </div>
+        <div class="panel-body">
+            <div class="col-sm-6">
+                <h4>Heading</h4>
+                <ul class="nav">
+                    <li ng-repeat="th in vm.themes track by th" ng-class="::'th-'+th">
+                        <div class="radio">
+                            <label class="i-checks">
+                                <input type="radio" name="theme" ng-model="vm.heading"
+                                       ng-change="vm.selectTheme(vm.heading,'heading')" ng-value="th">
+                                <i></i>
+                                {{::th}}
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-6">
+                <h4>Navbar</h4>
+                <ul class="nav">
+                    <li ng-repeat="th in vm.themes track by th" ng-class="::'th-'+th">
+                        <div class="radio">
+                            <label class="i-checks">
+                                <input type="radio" name="navbar-theme" ng-model="vm.navbar"
+                                       ng-change="vm.selectTheme(vm.navbar,'navbar')" ng-value="th">
+                                <i></i>
+                                {{::th}}
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>侧边导航栏</h4>
+
+        </div>
+        <div class="panel-body">
+            <div class="col-sm-12">
+                <h4>左侧菜单栏</h4>
+                <ul class="nav">
+                    <li ng-repeat="th in vm.themes track by th" ng-class="::'th-'+th">
+                        <div class="radio">
+                            <label class="i-checks">
+                                <input type="radio" name="left-aside-theme" ng-model="vm.leftAside"
+                                       ng-change="vm.selectTheme(vm.leftAside, 'aside')" ng-value="th">
+                                <i></i>
+                                {{::th}}
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

@@ -9,15 +9,18 @@ require('bootstrap-sass/assets/stylesheets/_bootstrap.scss');
 // all pages
 var homePage = require('./home');
 var newsPage = require('./news');
-var adminPage = require('./admin');
+
 var reduxPage = require('./redux');
+var adminPage = require('./admin');
+
 
 var pagesModule = angular.module('app.pages', [
     uiRouter,
     homePage,
     newsPage,
-    adminPage,
-    reduxPage
+    // redux单独应用在多个页面时，谁在后，谁起作用
+    reduxPage,
+    adminPage
 ])
     .config(function configRouter($urlRouterProvider, $locationProvider) {
         'ngInject';

@@ -147,7 +147,7 @@ angular.module('widgets.ui.tree', [])
                 }
 
                 if (item[stateAttribute]) {
-                    item.$folded = $state.includes(item[stateAttribute]);
+                    item.$folded = $state.is(item[stateAttribute]);
                 }
 
                 item.$folded && stack.push(item);

@@ -1,5 +1,5 @@
 <header class="app-header navbar">
-    <div class="navbar-header" ng-class="skinHeading">
+    <div class="navbar-header" ng-class="'th-' + skinHeading">
         <button class="pull-right visible-xs dk">
             <i class="fa fa-gear"></i>
         </button>
@@ -12,7 +12,7 @@
             <span class="hidden-folded m-l-xs">组件化开发</span>
         </a>
     </div>
-    <div class="navbar-collapse collapse pos-rlt box-shadow" ng-class="skinCollapse">
+    <div class="navbar-collapse collapse pos-rlt box-shadow" ng-class="'th-'+skinCollapse">
         <div class="nav navbar-nav hidden-xs">
             <a class="btn navbar-btn no-shadow" ng-click="toggleHeading()">
                 <i class="fa fa-fw fa-dedent"></i>
