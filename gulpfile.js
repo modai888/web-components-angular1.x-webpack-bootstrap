@@ -1,5 +1,9 @@
 var gulp = require('gulp');
 var nodemon = require('gulp-nodemon');
+var eslint = require('gulp-eslint');
+// var scssLint = require('gul');
+var styleLint = require('gulp-stylelint');
+var htmlLint = require('gulp-html-lint');
 var gutil = require('gulp-util');
 var browerSync = require('browser-sync');
 
@@ -8,6 +12,25 @@ var WebpackDevServer = require("webpack-dev-server");
 var webpackDevMiddleware = require('webpack-dev-middleware');
 
 const BROWSER_SYNC_SERVER = 'browser-sync-server';
+
+const paths = {
+    js: [
+        './src/**/*.js',
+        '!./src/**/*.spec.js'
+    ],
+    scss: [
+        './src/**/*.scss'
+    ],
+    css: [
+        './src/**/*.css'
+    ],
+    html: [
+        './src/**/*.html'
+    ],
+    lint: [
+        './test/lint.js'
+    ]
+};
 
 
 gulp.task('default', function () {
@@ -96,3 +119,72 @@ function startBrowserSync(isDev) {
         reloadDelay: 0
     });
 }
+
+
+/**
+ * 代码校验js、html、css
+ *
+ * @dependencies：
+ *
+ * eslint-path-formatter
+ * gulp-eslint
+ *
+ * gulp-stylelint
+ * stylelint-config-standard
+ *
+ * gulp-html-lint
+ *
+ * npm install --save-dev --registry https://registry.npm.taobao.org
+ * */
+
+// es5
+// es6
+var eslintConfig = require('./eslint.config');
+gulp.task('js-lint', function () {
+
+    return gulp.src(paths.lint)
+        .pipe(eslint(eslintConfig))
+        // .pipe(eslint.format())
+        .pipe(eslint.format('node_modules/eslint-path-formatter'))
+        .pipe(eslint.failAfterError());
+
+});
+
+// scss lint
+gulp.task('scss-lint', function () {
+
+    return gulp.src(paths.scss)
+        .pipe()
+});
+
+// css lint
+var styleLintConfig = require('./stylelint.config');
+gulp.task('css-lint', function () {
+
+    return gulp.src(paths.css)
+        .pipe(styleLint({
+            config: styleLintConfig,
+            failAfterError: true,
+            reportOutputDir: 'reports/csslint',
+            reporters: [
+                {formatter: 'string', console: true},
+                {formatter: 'json', save: 'report.json'},
+            ],
+            debug: true
+        }));
+});
+
+// html lint
+var htmlLintConfig = require('./htmllint.config');
+gulp.task('html-lint', function () {
+
+    return gulp.src(paths.html)
+        .pipe(htmlLint({
+            // htmllintrc: "htmllintrc",
+            useHtmllintrc: false,
+            limitFiles: 2,
+            rules: htmlLintConfig
+        }))
+        .pipe(htmlLint.format())
+        .pipe(htmlLint.failAfterError())
+});
